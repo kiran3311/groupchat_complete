@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css folder/Chat.css">
+
+
+
+</head>
+
+<body>
+    <table class="nav_table">
+        <tr>
+            <button class="active">Group Chat</button>
+            <a href="./Users.html"><button class="navBtn">Manage Users</button></a>
+
+            <a href="./Logout.html"><button class="navBtn" id="logout" onclick="logout()">Logout</button></a>
+        </tr>
+    </table>
+    <div class="container-1">
+        <div class="chatDiv">
+            <h4s>Group Chat <button id="x">X</button></h4>
+        </div>
+    </div>
+    <div class="container-2">
+        <ul id="list">
+            <li></li>
+
+        </ul>
+
+
+    </div>
+    <div class="container-3">
+        <label id="userName">Anne Hunter</label>
+        <input type="text" id="msgText" />
+        <button class="btn" id="sendBtn" onclick="msgFunction()">send</button>
+        <button class="btn" onclick="reload()">Refresh</button>
+
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+
+
+        window.onload = function () {
+
+            let getData = JSON.parse(localStorage.getItem('logedinUser'))
+            if (getData) {
+                return true
+
+            }
+            else {
+                window.location.href = './welcome.html'
+                return false
+            }
+        }
+
+
+
+
+
+
+
+        let getName = JSON.parse(localStorage.getItem('logedinUser'))
+
+
+
+
+        let userName = getName.name
+        var userEmail = getName.email
+        document.getElementById('userName').innerHTML = userName
+
+
+
+
+
+
+        let msgArr = JSON.parse(localStorage.getItem('msg')) ? JSON.parse(localStorage.getItem('msg')) : []
+
+
+        for (var i = 0; i < msgArr.length; i++) {
+            var list = document.getElementById('list')
+            var li = document.createElement('li')
+            li.textContent = '[' + msgArr[i].date + '] ' + msgArr[i].name + ' :' + msgArr[i].msg
+            list.append(li)
+
+        }
+
+
+
+
+
+
+        let msgFunction = () => {
+
+            var textMsg = document.getElementById('msgText').value
+            // var list = document.getElementById('list')
+            // var li = document.createElement('li')
+            // li.textContent =realTimedata+' '+ textMsg
+            // list.append(li)
+
+            var msgObj = {
+                'msg': textMsg,
+                'date': new Date().toLocaleString().replace(",", ""),
+                'name': userName
+
+            }
+
+            msgArr.push(msgObj)
+            localStorage.setItem('msg', JSON.stringify(msgArr))
+
+
+            document.getElementById('msgText').value = ''
+            window.location.reload(true)
+        }
+
+
+        let reload = () => {
+            window.location.reload(true)
+        }
+
+
+        let logout = () => {
+            localStorage.removeItem('logedinUser');
+        }
+
+
+        document.getElementById('msgText').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                msgFunction()
+            }
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

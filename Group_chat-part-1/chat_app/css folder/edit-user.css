@@ -1,0 +1,64 @@
+.nav_table{
+    
+    width: 100%;
+    border-collapse: collapse;
+    height: 50px;
+
+}
+
+
+.navBtn{
+width: 33.33%;
+height: 45px;
+background-color: gray;
+
+
+}
+
+
+.saveForm{
+    text-align: center;
+    padding: 20px;
+}
+.main{
+    text-align: center;
+}
+
+.lable{
+    padding: 20px;
+}
+
+.input-feild{
+    padding: 3px;
+}
+
+.btn-div{
+    padding: 15px;
+    margin-left: 600px;
+}
+
+
+.btn{
+    width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: cadetblue;
+}
+.btn:focus{background-color: aliceblue;}
+td {
+    padding: 10px;
+  }
+
+  input{
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .table{
+   
+    margin-left: 32%;
+}
+
+button{
+    cursor: pointer;
+}

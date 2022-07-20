@@ -1,0 +1,46 @@
+.registerForm{
+    text-align: center;
+    padding: 20px;
+}
+
+
+.lable{
+    padding: 20px;
+}
+
+.input-feild{
+    padding: 3px;
+}
+
+.btn-div{
+    padding: 15px;
+}
+
+
+.btn{
+    width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: cadetblue;
+}
+.btn:focus{background-color: aliceblue;}
+
+.table{
+   
+    margin-left: 28%;
+}
+
+
+
+td {
+    padding: 10px;
+  }
+
+  input{
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  button{
+    cursor: pointer;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css folder/login_success.css">
+</head>
+<body>
+    <table>
+
+        <tr>
+            <a href="./Chat.html"><button>Group Chat</button></a>
+            <a href="./Users.html"><button >Manage Users</button></a>
+            
+            <a href="./Logout.html"><button>Logout</button></a>
+        </tr>
+    </table>
+        <div class="login">
+            <h1>
+                Login successful
+            </h1>
+
+            <p id="username"><b>Welcome !</b> <p ></p></p>
+        </div>
+        
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+
+            let getName = JSON.parse(localStorage.getItem('logedinUser'))
+            let userName = getName.name
+            let userEmail = getName.email     
+            $('#username').append(userEmail)       
+        </script>
+</body>
+</html>

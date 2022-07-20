@@ -1,0 +1,30 @@
+table{
+    
+        width: 100%;
+        border-collapse: collapse;
+        height: 50px;
+    
+}
+td{
+    border: solid 2px;
+    text-align: center;
+}
+
+button{
+    width: 33.33%;
+    height: 45px;
+    background-color: gray;
+    
+    
+    }
+   
+    
+
+.login{
+    text-align: center;
+    padding: 30px;
+}
+
+button{
+    cursor: pointer;
+}

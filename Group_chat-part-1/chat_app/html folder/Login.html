@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css folder/Login.css">
+</head>
+
+<body>
+    <div>
+        <form class="loginForm" action="./loginsuccess.html" method="get">
+            <h1>Login</h1>
+            <table class=" table">
+
+
+                <div class="table-row">
+                    <tr>
+                        <td>
+                            <label class="lable">Email :</label>
+                        </td>
+                        <td>
+                            <input type="email" placeholder="email" id="loginEmail" class="input" required />
+                        </td>
+                    </tr>
+                </div>
+                <div class="table-row">
+                    <tr>
+                        <td>
+                            <label class="lable">Password :</label>
+                        </td>
+                        <td>
+                            <input type="password" placeholder="password" id="loginPass" class="input" required />
+                        </td>
+                    </tr>
+                </div>
+
+
+
+            </table>
+            <div class="btn-div">
+                <a href="./loginsuccess.html">
+                    <button class="btn">Login</button>
+                </a>
+            </div>
+    </div>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <script>
+
+
+
+
+
+
+
+        $('form').submit(() => {
+
+
+            let loginEmail = $('#loginEmail').val()
+            let loginPass = $('#loginPass').val()
+
+            let getUserData = JSON.parse(localStorage.getItem('user'))
+
+
+
+            if (getUserData.find(o => o.email == loginEmail && o.password == loginPass)) {
+
+                
+storeUser()
+
+                return true
+            }
+
+            else {
+                alert('invalid credentials')
+                return false
+            }
+
+
+        })
+
+
+
+
+
+
+        let storeUser = () => {
+
+            let loginEmail = $('#loginEmail').val()
+
+            let getUserData = JSON.parse(localStorage.getItem('user'))
+
+            let searchIndex = getUserData.findIndex((userDetails) => userDetails.email == loginEmail)
+            let loggedinUsername = getUserData[searchIndex].fullName
+            let loggedUserEmail = getUserData[searchIndex].email
+
+
+
+            localStorage.setItem('logedinUser', JSON.stringify(
+                {
+                    name: loggedinUsername,
+                    email: loggedUserEmail
+
+
+                }
+            ))
+
+
+
+
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
